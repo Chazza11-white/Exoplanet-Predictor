@@ -44,6 +44,7 @@ classifier_scaler_path = "models/scalernew.pkl"
 # Load the classification model and scaler
 classification_model, classifier_scaler = load_model_and_scaler(classification_model_path, classifier_scaler_path)
 
+
 # Load all models and the common scaler
 models = {}
 common_scaler = None
@@ -149,8 +150,8 @@ if 'prediction_type' in st.session_state:
         # Sidebar for input features
         st.sidebar.header("Input Features")
         user_features = get_user_inputs({
-            "Distance": 0.0, "Temperature": 0.0, "Magnitude": 0.0,
-            "Luminosity": 0.0, "Mass": 0.0, "Radius": 0.0, "Parallax": 0.0
+            "Distance (parsec)": 0.0, "Temperature (K)": 0.0, "Magnitude (mag)": 0.0,
+            "Luminosity (solLum)": 0.0, "Mass (solMass)": 0.0, "Radius (solRad)": 0.0, "Parallax (arcsec)": 0.0
         })
 
         # Button to predict habitable zone
@@ -174,11 +175,11 @@ if 'prediction_type' in st.session_state:
         # Sidebar for input features
         st.sidebar.header("Input Features")
         user_features = get_user_inputs({
-            "Planet Radius": 0.0, "Planet Mass": 0.0, "Planet Density": 0.0,
-            "Surface Temperature (min)": 0.0, "Surface Temperature (max)": 0.0,
-            "Semi-Major Axis": 0.0, "Orbital Period": 0.0, "Orbital Inclination": 0.0,
-            "Surface Gravity": 0.0, "Escape Velocity": 0.0, "Star Distance": 0.0,
-            "Star Temperature": 0.0, "Radius Error (min)": 0.0, "Radius Error (max)": 0.0,
+            "Planet Radius (Rad)": 0.0, "Planet Mass (Mass)": 0.0, "Planet Density": 0.0,
+            "Surface Temperature min (K)": 0.0, "Surface Temperature max (K)": 0.0,
+            "Semi-Major Axis (AU)": 0.0, "Orbital Period (days)": 0.0, "Orbital Inclination  (deg°)": 0.0,
+            "Surface Gravity (m/s²)": 0.0, "Escape Velocity (km/s)": 0.0, "Star Distance (parsecs)": 0.0,
+            "Star Temperature (K)": 0.0, "Radius Error min (Rad)": 0.0, "Radius Error max (Rad)": 0.0,
             "Potential": 0.0, "Eccentricity": 0.0
         })
 
