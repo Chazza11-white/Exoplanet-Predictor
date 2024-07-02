@@ -147,17 +147,6 @@ if 'prediction_type' in st.session_state:
         The habitable zone, also known as the Goldilocks zone, is the region around a star where conditions are just right for liquid water to exist on the surface of a planet.  The four zones predicted in this calculation are Early Venus, Runaway Greenhouse, Maximum Greenhouse and Early Mars.
         """)
 
-        # Dictionary mapping feature names to their units of measure
-        units = {
-            "Distance (parsec)": "parsec",
-            "Temperature (K)": "K",
-            "Magnitude (mag)": "mag",
-            "Luminosity (solLum)": "solLum",
-            "Mass (solMass)": "solMass",
-            "Radius (solRad)": "solRad",
-            "Parallax (arcsec)": "arcsec"
-        }
-
         # Sidebar for input features
         st.sidebar.header("Input Features")
         user_features = get_user_inputs({
@@ -182,75 +171,15 @@ if 'prediction_type' in st.session_state:
         st.markdown("""
         Planet classification refers to categorizing exoplanets based on various characteristics such as size, composition, orbital properties, and atmospheric conditions.  There are 6 general planet types:  Jovian, Subterran, Miniterran, Terran, Superterran and Neptunian.  If you are not able to provide all the user inputs to the left the prediction model will still make a prediction along with the % of liklihood.
         """)
-        
-        # Function to get user inputs
-def get_user_inputs(inputs):
-    user_inputs = {}
-    for key, value in inputs.items():
-        unit = units.get(key, "")  # Get the unit of measure for the current key
-        user_input = st.sidebar.number_input(f"{key} ({unit})", value)  # Display feature name with unit of measure
-        user_inputs[key] = user_input
-    return user_inputs
 
-# Dictionary mapping feature names to their units of measure
-units = {
-    "Distance": "parsec",
-    "Luminosity": "solLum",
-    "Magnitude": "mag",
-    "Mass": "solMass",
-    "Parallax": "arcsec",
-    "Planet Radius (Rad)",
-    "Planet Mass (Mass)":,
-    "Planet Density": "g/cm³",
-    "Surface Temperature (min)": "K",
-    "Surface Temperature (max)": "K",
-    "Semi-Major Axis": "AU",
-    "Orbital Period": "days",
-    "Orbital Inclination": "°",
-    "Surface Gravity": "m/s²",
-    "Escape Velocity": "km/s",
-    "Star Distance": "parsecs",
-    "Star Temperature": "K",
-    "Radius Error (min)":,
-    "Radius Error (max)":,
-    "Potential": "dimensionless",
-    "Eccentricity": "dimensionless"
-}
-
-# Sidebar for input features
-st.sidebar.header("Input Features")
-user_features = get_user_inputs({
-    "Distance": 0.0, 
-    "Luminosity": 0.0, 
-    "Magnitude": 0.0,
-    "Mass": 0.0,
-    "Parallax": 0.0,
-    "Planet Radius (Rad)": 0.0,
-    "Planet Mass (Mass)": 0.0,
-    "Planet Density": 0.0,
-    "Surface Temperature (min)": 0.0,
-    "Surface Temperature (max)": 0.0,
-    "Semi-Major Axis": 0.0,
-    "Orbital Period": 0.0,
-    "Orbital Inclination": 0.0,
-    "Surface Gravity": 0.0,
-    "Escape Velocity": 0.0,
-    "Star Distance": 0.0,
-    "Star Temperature": 0.0,
-    "Radius Error (min)": 0.0,
-    "Radius Error (max)": 0.0,
-    "Potential": 0.0,
-    "Eccentricity": 0.0
-})
-        
         # Sidebar for input features
         st.sidebar.header("Input Features")
         user_features = get_user_inputs({
-            "Planet Radius (Rad)": 0.0, "Planet Mass (Mass)": 0.0, "Planet Density": 0.0,
-            "Surface Temperature min (K)": 0.0, "Surface Temperature max (K)": 0.0,
-            "Semi-Major Axis (AU)": 0.0, "Orbital Period (days)": 0.0, "Orbital Inclination  (deg°)": 0.0,
-            "Surface Gravity (m/s²)": 0.0, "Escape Velocity (km/s)": 0.0, "Star Distance (parsecs)": 0.0,
-            "Star Temperature (K)": 0.0, "Radius Error min (Rad)": 0.0, "Radius Error max (Rad)": 0.0,
+            "Planet Radius": 0.0, "Planet Mass": 0.0, "Planet Density": 0.0,
+            "Surface Temperature (min)": 0.0, "Surface Temperature (max)": 0.0,
+            "Semi-Major Axis": 0.0, "Orbital Period": 0.0, "Orbital Inclination": 0.0,
+            "Surface Gravity": 0.0, "Escape Velocity": 0.0, "Star Distance": 0.0,
+            "Star Temperature": 0.0, "Radius Error (min)": 0.0, "Radius Error (max)": 0.0,
             "Potential": 0.0, "Eccentricity": 0.0
         })
 
