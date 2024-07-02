@@ -2,6 +2,7 @@ import streamlit as st
 import joblib
 import pandas as pd
 
+
 # Function to load the model and scaler
 def load_model_and_scaler(model_path, scaler_path):
     try:
@@ -11,6 +12,7 @@ def load_model_and_scaler(model_path, scaler_path):
     except Exception as e:
         st.error(f"Error loading model or scaler: {e}")
         return None, None
+
 
 # Paths to the models and scalers
 models_info = {
@@ -54,6 +56,7 @@ for zone, paths in models_info.items():
     if scaler and not common_scaler:
         common_scaler = scaler
 
+
 # Function to predict habitable zone distance
 def predict_distance(model, scaler, input_features):
     try:
@@ -71,12 +74,14 @@ def predict_distance(model, scaler, input_features):
         st.error(f"Error predicting distance: {e}")
         return None
 
+
 # Function to get user inputs
 def get_user_inputs(input_fields):
     inputs = {}
     for field, default_value in input_fields.items():
         inputs[field] = st.sidebar.number_input(field, value=default_value)
     return inputs
+
 
 # Custom CSS for button styling and centering
 custom_css = """
@@ -102,6 +107,7 @@ custom_css = """
 # Apply custom CSS
 st.markdown(custom_css, unsafe_allow_html=True)
 
+
 # Display Header
 def niceheader():
     st.markdown("<h1 style='text-align: center; color: purple;'>Exoplanets and the Habitable Zone</h1>", unsafe_allow_html=True)
@@ -109,6 +115,7 @@ def niceheader():
     st.markdown("""
     This AI Predictive Model can predict the habitable zone of a star as well as classify exoplanets based on user inputs. Please choose the type of prediction you would like to perform.
     """)
+
 
 # Display header
 niceheader()
@@ -221,7 +228,7 @@ if 'prediction_type' in st.session_state:
                 6: 'Terran: Earth-like planets.'
             }
             
-           planet_media = {
+            planet_media = {
                 'Jovian': r'C:\Users\Guest User\OneDrive - Torrens Global Education Services\Desktop\Planet Classification Dataset\exoplanet-predictor\planets\Jovian.mp4',
                 'Miniterran': r'C:\Users\Guest User\OneDrive - Torrens Global Education Services\Desktop\Planet Classification Dataset\exoplanet-predictor\planets\Miniterran.mp4',
                 'Neptunian': r'C:\Users\Guest User\OneDrive - Torrens Global Education Services\Desktop\Planet Classification Dataset\exoplanet-predictor\planets\Neptunian.mp4',
@@ -229,7 +236,6 @@ if 'prediction_type' in st.session_state:
                 'Superterran': r'C:\Users\Guest User\OneDrive - Torrens Global Education Services\Desktop\Planet Classification Dataset\exoplanet-predictor\planets\SuperTerran.mp4',
                 'Terran': r'C:\Users\Guest User\OneDrive - Torrens Global Education Services\Desktop\Planet Classification Dataset\exoplanet-predictor\planets\Terran.mp4'
             }
-
 
             planet_type = ptype_mapping.get(prediction, "Unknown")
             planet_description = planet_descriptions.get(prediction, "No description available.")
