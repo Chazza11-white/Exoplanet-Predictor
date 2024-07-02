@@ -232,14 +232,14 @@ if 'prediction_type' in st.session_state:
                 5: 'Superterran: Larger terrestrial planets.',
                 6: 'Terran: Earth-like planets.'
             }
-            
+
             planet_media = {
-                'Jovian': r'C:\Users\Guest User\OneDrive - Torrens Global Education Services\Desktop\Planet Classification Dataset\exoplanet-predictor\planets\Jovian.mp4',
-                'Miniterran': r'C:\Users\Guest User\OneDrive - Torrens Global Education Services\Desktop\Planet Classification Dataset\exoplanet-predictor\planets\Miniterran.mp4',
-                'Neptunian': r'C:\Users\Guest User\OneDrive - Torrens Global Education Services\Desktop\Planet Classification Dataset\exoplanet-predictor\planets\Neptunian.mp4',
-                'Subterran': r'C:\Users\Guest User\OneDrive - Torrens Global Education Services\Desktop\Planet Classification Dataset\exoplanet-predictor\planets\Subterran.mp4',
-                'Superterran': r'C:\Users\Guest User\OneDrive - Torrens Global Education Services\Desktop\Planet Classification Dataset\exoplanet-predictor\planets\SuperTerran.mp4',
-                'Terran': r'C:\Users\Guest User\OneDrive - Torrens Global Education Services\Desktop\Planet Classification Dataset\exoplanet-predictor\planets\Terran.mp4'
+                'Jovian': 'planets/Jovian.mp4',
+                'Miniterran': 'planets/Miniterran.mp4',
+                'Neptunian': 'planets/Neptunian.mp4',
+                'Subterran': 'planets/Subterran.mp4',
+                'Superterran': 'planets/SuperTerran.mp4',
+                'Terran': 'planets/Terran.mp4'
             }
 
             planet_type = ptype_mapping.get(prediction, "Unknown")
