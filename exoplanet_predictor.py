@@ -3,6 +3,10 @@ import joblib
 import pandas as pd
 
 
+import streamlit as st
+import joblib
+import os
+
 # Function to load the model and scaler
 def load_model_and_scaler(model_path, scaler_path):
     try:
@@ -13,29 +17,29 @@ def load_model_and_scaler(model_path, scaler_path):
         st.error(f"Error loading model or scaler: {e}")
         return None, None
 
-
-# Paths to the models and scalers
+# Paths to the models and scalers (relative paths within your repository)
 models_info = {
     "Recent Venus": {
-        "model_path": r'C:\Users\Guest User\OneDrive - Torrens Global Education Services\Desktop\Planet Classification Dataset\exoplanet-predictor\models\RecentVenusDist_model.pkl',
-        "scaler_path": r'C:\Users\Guest User\OneDrive - Torrens Global Education Services\Desktop\Planet Classification Dataset\exoplanet-predictor\models\HZscaler.pkl'
+        "model_path": "models/RecentVenusDist_model.pkl",
+        "scaler_path": "models/HZscaler.pkl"
     },
     "Runaway Greenhouse": {
-        "model_path": r'C:\Users\Guest User\OneDrive - Torrens Global Education Services\Desktop\Planet Classification Dataset\exoplanet-predictor\models\RunawayGreenhouseDist_model.pkl',
-        "scaler_path": r'C:\Users\Guest User\OneDrive - Torrens Global Education Services\Desktop\Planet Classification Dataset\exoplanet-predictor\models\HZscaler.pkl'
+        "model_path": "models/RunawayGreenhouseDist_model.pkl",
+        "scaler_path": "models/HZscaler.pkl"
     },
     "Maximum Greenhouse": {
-        "model_path": r'C:\Users\Guest User\OneDrive - Torrens Global Education Services\Desktop\Planet Classification Dataset\exoplanet-predictor\models\MaximumGreenhouseDist_model.pkl',
-        "scaler_path": r'C:\Users\Guest User\OneDrive - Torrens Global Education Services\Desktop\Planet Classification Dataset\exoplanet-predictor\models\HZscaler.pkl'
+        "model_path": "models/MaximumGreenhouseDist_model.pkl",
+        "scaler_path": "models/HZscaler.pkl"
     },
     "Early Mars": {
-        "model_path": r'C:\Users\Guest User\OneDrive - Torrens Global Education Services\Desktop\Planet Classification Dataset\exoplanet-predictor\models\EarlyMarsDist_model.pkl',
-        "scaler_path": r'C:\Users\Guest User\OneDrive - Torrens Global Education Services\Desktop\Planet Classification Dataset\exoplanet-predictor\models\HZscaler.pkl'
+        "model_path": "models/EarlyMarsDist_model.pkl",
+        "scaler_path": "models/HZscaler.pkl"
     }
 }
 
-classification_model_path = r'C:\Users\Guest User\OneDrive - Torrens Global Education Services\Desktop\Planet Classification Dataset\exoplanet-predictor\models\best_gradient_boosting_modelnew.pkl'
-classifier_scaler_path = r'C:\Users\Guest User\OneDrive - Torrens Global Education Services\Desktop\Planet Classification Dataset\exoplanet-predictor\models\scalernew.pkl'
+# Path to the classification model and scaler (relative paths within your repository)
+classification_model_path = "models/best_gradient_boosting_modelnew.pkl"
+classifier_scaler_path = "models/scalernew.pkl"
 
 # Load the classification model and scaler
 classification_model, classifier_scaler = load_model_and_scaler(classification_model_path, classifier_scaler_path)
